@@ -88,7 +88,6 @@
 </table>
 </br>
 
-
 <h2>General Information</h2>
 <table class="table" id="general-info-table" style="border-spacing: 10px 20px;">
     <tr>
@@ -178,6 +177,19 @@
 </table>
 </br>
 
+<h2>Refresh Interval</h2>
+<form method="POST" action="<%=luci.dispatcher.build_url("admin/modem/modeminfo/set_refresh")%>">
+    <label for="refresh_rate">Select Refresh Rate:</label>
+    <select name="refresh_rate" id="refresh_rate" style="margin-bottom: 20px;">
+        <option value="2" <%=refresh_rate == "2" and "selected" or ""%>>2 seconds</option>
+        <option value="5" <%=refresh_rate == "5" and "selected" or ""%>>5 seconds</option>
+        <option value="7" <%=refresh_rate == "7" and "selected" or ""%>>7 seconds</option>
+        <option value="10" <%=refresh_rate == "10" and "selected" or ""%>>10 seconds</option>
+        <option value="15" <%=refresh_rate == "15" and "selected" or ""%>>15 seconds</option>
+    </select>
+    <button type="submit" class="btn">Save Refresh Rate</button>
+</form>
+
 <h1>Modem Information</h1>
 <p style="display: flex; align-items: center;">
     If you like my work, please consider supporting me:
@@ -214,19 +226,6 @@
          onclick="window.open('https://t.me/myopenwrt', '_blank')">
 </p>
 </br>
-
-<h2>Refresh Interval</h2>
-<form method="POST" action="<%=luci.dispatcher.build_url("admin/modem/modeminfo/set_refresh")%>">
-    <label for="refresh_rate">Select Refresh Rate:</label>
-    <select name="refresh_rate" id="refresh_rate" style="margin-bottom: 20px;">
-        <option value="5" <%=refresh_rate == "5" and "selected" or ""%>>5 seconds</option>
-        <option value="10" <%=refresh_rate == "10" and "selected" or ""%>>10 seconds</option>
-        <option value="15" <%=refresh_rate == "15" and "selected" or ""%>>15 seconds</option>
-        <option value="30" <%=refresh_rate == "30" and "selected" or ""%>>30 seconds</option>
-        <option value="60" <%=refresh_rate == "60" and "selected" or ""%>>60 seconds</option>
-    </select>
-    <button type="submit" class="btn">Save Refresh Rate</button>
-</form>
 
 <style>
     /* Progress bar container */
